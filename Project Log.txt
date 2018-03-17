@@ -1,0 +1,2 @@
+March 10, 2018 - Unity version updated to the latest version. Steam VR installed. 
+March 16, 2018 - Menu scene and game scene created. Menu buttons for changing scenes and showing the instructions.
