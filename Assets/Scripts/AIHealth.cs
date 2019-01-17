@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AIHealth : MonoBehaviour {
 
-    public GameObject healthBar;
-    public float max_health = 100f;
-    public float cur_health = 0f;
+    public GameObject healthBar; //Healthbar reference
+    public float max_health = 100f; //Max health of the AI
+    public float cur_health = 0f; //Current health of the AI
 
 	// Use this for initialization
 	void Start () {
@@ -15,15 +15,11 @@ public class AIHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //taking damage test
-        /*if (Input.GetKeyDown("f"))
-        {
-            takeDamage(11.0f);
-        }*/
+
 	}
 
     //Take damage and check if still alive
-    void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         cur_health -= damage;
         updateHealthBar(cur_health / max_health);
@@ -36,6 +32,11 @@ public class AIHealth : MonoBehaviour {
     //When health reaches 0, destroy this gameObject
     void die()
     {
+        int score = PlayerPrefs.GetInt("Score");
+        score += 100;
+        PlayerPrefs.SetInt("Score", score);
+        Debug.Log("Score: " + PlayerPrefs.GetInt("Score"));
+        Destroy(transform.parent.gameObject);
         Destroy(gameObject);
     }
 

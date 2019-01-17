@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour {
 
-    public GameObject menuCanvas;
-    public GameObject instrCanvas;
+    public GameObject menuCanvas; //Main menu canvas reference
+    public GameObject instrCanvas; //Instructions menu canvas reference
 
 	// Use this for initialization
 	void Start () {
@@ -17,12 +17,14 @@ public class MenuManager : MonoBehaviour {
 		
 	}
 
+    //Toggle to instructions canvas
     public void activateInstruction()
     {
         instrCanvas.SetActive(true);
         menuCanvas.SetActive(false);
     }
 
+    //Toggle to main menu canvas
     public void activateMenu()
     {
         menuCanvas.SetActive(true);
